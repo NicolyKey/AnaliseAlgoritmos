@@ -1,7 +1,8 @@
-﻿namespace BolsaDeValores.Core.Enums;
-
-public enum TipoOrdem
+﻿namespace AnaliseAlgoritmos.Problema_2
 {
-    Compra,
-    Venda
+    public enum TipoOrdem
+    {
+        Compra,
+        Venda
+    }
 }
