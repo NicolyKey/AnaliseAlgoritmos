@@ -2,5 +2,5 @@
 
 public interface IAssinante
 {
-    void Atualizar(string nomeAcao, double novoValor);
+    void Atualizar(string nomeAcao, decimal novoValor);
 }

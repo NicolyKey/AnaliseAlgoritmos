@@ -6,9 +6,9 @@ namespace AnaliseAlgoritmos.Problema_2
     {
         public string NomeInvestidor { get; }
         public TipoOrdem Tipo { get; }
-        public double Valor { get; }
+        public decimal Valor { get; }
 
-        public Ordem(string nomeInvestidor, TipoOrdem tipo, double valor)
+        public Ordem(string nomeInvestidor, TipoOrdem tipo, decimal valor)
         {
             if (string.IsNullOrWhiteSpace(nomeInvestidor))
                 throw new ArgumentException("Nome do investidor é obrigatório", nameof(nomeInvestidor));

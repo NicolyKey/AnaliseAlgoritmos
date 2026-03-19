@@ -35,7 +35,7 @@ public class BolsaDeValores
         {
             foreach (var ordemVenda in ordensVenda.ToList())
             {
-                if (ordemCompra.Valor >= ordemVenda.Valor)
+                if (ordemCompra.Valor.Equals(ordemVenda.Valor))
                 {
                     var valorNegociacao = ordemVenda.Valor;
                     

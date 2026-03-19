@@ -24,22 +24,22 @@ public class InvestidorTests
     public void DeveRegistrarOrdemEmAcao()
     {
         var investidor = new Investidor("Maria");
-        var acao = new Acao("BBAS3", 24.00);
+        var acao = new Acao("BBAS3", 24.00m);
 
-        investidor.RegistrarOrdem(acao, TipoOrdem.Compra, 25.00);
+        investidor.RegistrarOrdem(acao, TipoOrdem.Compra, 25.00m);
 
         var ordens = acao.ObterOrdens();
         Assert.Single(ordens);
         Assert.Equal("Maria", ordens[0].NomeInvestidor);
         Assert.Equal(TipoOrdem.Compra, ordens[0].Tipo);
-        Assert.Equal(25.00, ordens[0].Valor);
+        Assert.Equal(25.00m, ordens[0].Valor);
     }
 
     [Fact]
     public void DeveInscreverEmAcaoEReceberNotificacoes()
     {
         var investidor = new Investidor("Carlos");
-        var acao = new Acao("PETR4", 30.00);
+        var acao = new Acao("PETR4", 30.00m);
 
         investidor.InscreverEmAcao(acao);
         acao.RegistrarMatch(32.00m);
@@ -54,7 +54,7 @@ public class InvestidorTests
     public void DeveReceberMultiplasNotificacoes()
     {
         var investidor = new Investidor("Ana");
-        var acao = new Acao("VALE3", 70.00);
+        var acao = new Acao("VALE3", 70.00m);
 
         investidor.InscreverEmAcao(acao);
         acao.RegistrarMatch(71.00m);
@@ -69,7 +69,7 @@ public class InvestidorTests
     public void DeveDesinscreverDeAcaoEPararDeReceberNotificacoes()
     {
         var investidor = new Investidor("Pedro");
-        var acao = new Acao("ITUB4", 25.00);
+        var acao = new Acao("ITUB4", 25.00m);
 
         investidor.InscreverEmAcao(acao);
         acao.RegistrarMatch(26.00m);
@@ -85,11 +85,11 @@ public class InvestidorTests
     public void DeveLimparNotificacoes()
     {
         var investidor = new Investidor("Lucia");
-        var acao = new Acao("WEGE3", 40.00);
+        var acao = new Acao("WEGE3", 40.00m);
 
         investidor.InscreverEmAcao(acao);
-        acao.RegistrarMatch(41.00);
-        acao.RegistrarMatch(42.00);
+        acao.RegistrarMatch(41.00m);
+        acao.RegistrarMatch(42.00m);
 
         investidor.LimparNotificacoes();
 
@@ -100,11 +100,11 @@ public class InvestidorTests
     public void DeveRegistrarMultiplasOrdensEmDiferentesAcoes()
     {
         var investidor = new Investidor("Roberto");
-        var acao1 = new Acao("PETR4", 30.00);
-        var acao2 = new Acao("VALE3", 70.00);
+        var acao1 = new Acao("PETR4", 30.00m);
+        var acao2 = new Acao("VALE3", 70.00m);
 
-        investidor.RegistrarOrdem(acao1, TipoOrdem.Compra, 31.00);
-        investidor.RegistrarOrdem(acao2, TipoOrdem.Venda, 69.00);
+        investidor.RegistrarOrdem(acao1, TipoOrdem.Compra, 31.00m);
+        investidor.RegistrarOrdem(acao2, TipoOrdem.Venda, 69.00m);
 
         Assert.Single(acao1.ObterOrdens());
         Assert.Single(acao2.ObterOrdens());

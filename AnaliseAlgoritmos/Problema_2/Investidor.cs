@@ -17,7 +17,7 @@ public class Investidor : IAssinante
         Nome = nome;
     }
 
-    public void RegistrarOrdem(Acao acao, TipoOrdem tipo, double valor)
+    public void RegistrarOrdem(Acao acao, TipoOrdem tipo, decimal valor)
     {
         if (acao is null)
             throw new ArgumentNullException(nameof(acao));
@@ -42,7 +42,7 @@ public class Investidor : IAssinante
         acao.Desinscrever(this);
     }
 
-    public void Atualizar(string nomeAcao, double novoValor)
+    public void Atualizar(string nomeAcao, decimal novoValor)
     {
         var mensagem = $"Ação {nomeAcao} atualizada para R${novoValor:F2}";
         _notificacoes.Add(mensagem);

@@ -9,9 +9,9 @@ public class Acao : IPublicador
     private readonly List<Ordem> _ordens = new();
 
     public string Nome { get; }
-    public double ValorAtual { get; private set; }
+    public decimal ValorAtual { get; private set; }
 
-    public Acao(string nome, double valorInicial)
+    public Acao(string nome, decimal valorInicial)
     {
         Nome = nome;
         ValorAtual = valorInicial;
@@ -29,7 +29,7 @@ public class Acao : IPublicador
 
     public IReadOnlyList<Ordem> ObterOrdens() => _ordens.AsReadOnly();
 
-    public void RegistrarMatch(double novoValor)
+    public void RegistrarMatch(decimal novoValor)
     {
         ValorAtual = novoValor;
         Notificar();
