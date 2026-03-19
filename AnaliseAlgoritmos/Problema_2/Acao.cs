@@ -1,7 +1,7 @@
-﻿
-using AnaliseAlgoritmos.Problema_2;
+﻿using AnaliseAlgoritmos.Problema_2;
 using Problema_2.Core.Interfaces;
-using System.Runtime.Intrinsics.Arm;
+
+namespace Problema_2.Core;
 
 public class Acao : IPublicador
 {
@@ -9,9 +9,9 @@ public class Acao : IPublicador
     private readonly List<Ordem> _ordens = new();
 
     public string Nome { get; }
-    public decimal ValorAtual { get; private set; }
+    public double ValorAtual { get; private set; }
 
-    public Acao(string nome, decimal valorInicial)
+    public Acao(string nome, double valorInicial)
     {
         Nome = nome;
         ValorAtual = valorInicial;
@@ -29,7 +29,7 @@ public class Acao : IPublicador
 
     public IReadOnlyList<Ordem> ObterOrdens() => _ordens.AsReadOnly();
 
-    public void RegistrarMatch(decimal novoValor)
+    public void RegistrarMatch(double novoValor)
     {
         ValorAtual = novoValor;
         Notificar();
