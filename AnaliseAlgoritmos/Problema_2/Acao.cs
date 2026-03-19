@@ -52,7 +52,7 @@ public class Acao : IPublicador
         _assinantes.Remove(assinante);
     }
 
-    public void Notificar()
+    private void Notificar()
     {
         foreach (var assinante in _assinantes)
             assinante.Atualizar(Nome, ValorAtual);
