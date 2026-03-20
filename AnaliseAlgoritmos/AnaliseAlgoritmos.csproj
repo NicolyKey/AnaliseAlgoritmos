@@ -11,4 +11,10 @@
       <PackageReference Include="xunit" Version="2.9.0" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Reference Include="AlgoritmosDotNet">
+        <HintPath>..\..\..\Downloads\AlgoritmosDotNet.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
 </Project>
